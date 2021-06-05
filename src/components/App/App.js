@@ -5,8 +5,15 @@ import List from '../List';
 import Filter from '../Filter';
 import InnerWrapper from './styles';
 
+const filterMapping = {
+  All: () => true,
+  Active: (item) => !item.completed,
+  Done: (item) => item.completed,
+};
+
 function App() {
   const [todoItems, setTodoItems] = useState([]);
+  const [filter, setFilter] = useState('All');
 
   const addTodoItem = (item) => {
     setTodoItems([...todoItems, item]);
@@ -27,6 +34,8 @@ function App() {
     setTodoItems(newTodoItems);
   };
 
+  const filteredTodoItems = todoItems.filter(filterMapping[filter]);
+
   return (
     <div className="container-sm d-flex justify-content-center h-100 w-100">
       <InnerWrapper className="d-flex flex-column align-items-center">
@@ -42,11 +51,13 @@ function App() {
           addItem={addTodoItem}
         />
         <List
-          items={todoItems}
+          items={filteredTodoItems}
           deleteItem={deleteTodoItem}
           markItemAsCompleted={markItemAsCompleted}
         />
-        <Filter />
+        <Filter
+          setFilter={setFilter}
+        />
       </InnerWrapper>
     </div>
   );
