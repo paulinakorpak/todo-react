@@ -17,6 +17,16 @@ function App() {
     setTodoItems(newTodoItems);
   };
 
+  const markItemAsCompleted = (item) => {
+    const newTodoItems = todoItems.map((todoItem) => {
+      if (todoItem.id === item.id) {
+        return { ...todoItem, completed: !todoItem.completed };
+      }
+      return todoItem;
+    });
+    setTodoItems(newTodoItems);
+  };
+
   return (
     <div className="container-sm d-flex justify-content-center h-100 w-100">
       <InnerWrapper className="d-flex flex-column align-items-center">
@@ -28,8 +38,14 @@ function App() {
             you wont forget anything today!
           </Figure.Caption>
         </Figure>
-        <Form addItem={addTodoItem} />
-        <List items={todoItems} deleteItem={deleteTodoItem} />
+        <Form
+          addItem={addTodoItem}
+        />
+        <List
+          items={todoItems}
+          deleteItem={deleteTodoItem}
+          markItemAsCompleted={markItemAsCompleted}
+        />
         <Filter />
       </InnerWrapper>
     </div>
