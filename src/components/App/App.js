@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Figure from 'react-bootstrap/Figure';
 import Form from '../Form';
 import List from '../List';
@@ -6,6 +6,8 @@ import Filter from '../Filter';
 import InnerWrapper from './styles';
 
 function App() {
+  const [todoItems] = useState([]);
+
   return (
     <div className="container-sm d-flex justify-content-center h-100 w-100">
       <InnerWrapper className="d-flex flex-column align-items-center">
@@ -18,7 +20,7 @@ function App() {
           </Figure.Caption>
         </Figure>
         <Form />
-        <List />
+        <List items={todoItems} />
         <Filter />
       </InnerWrapper>
     </div>
