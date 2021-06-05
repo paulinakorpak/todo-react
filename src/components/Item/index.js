@@ -4,7 +4,11 @@ import Form from 'react-bootstrap/Form';
 import { BsArchiveFill } from 'react-icons/bs';
 import Todo from './styles';
 
-function Item({ item }) {
+function Item({ item, deleteItem }) {
+  const handleDelete = () => {
+    deleteItem(item);
+  };
+
   return (
     <Todo className="todo">
       <Form.Group controlId="formBasicCheckbox" className="d-flex align-items-center">
@@ -13,7 +17,10 @@ function Item({ item }) {
           label={item.title}
           className="checkbox flex-grow-1 text-secondary flex-grow-1"
         />
-        <BsArchiveFill className="icon text-primary" />
+        <BsArchiveFill
+          className="icon text-primary"
+          onClick={handleDelete}
+        />
       </Form.Group>
     </Todo>
   );
@@ -23,4 +30,5 @@ export default Item;
 
 Item.propTypes = {
   item: PropTypes.objectOf(PropTypes.any).isRequired,
+  deleteItem: PropTypes.func.isRequired,
 };

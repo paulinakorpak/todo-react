@@ -12,6 +12,11 @@ function App() {
     setTodoItems([...todoItems, item]);
   };
 
+  const deleteTodoItem = (item) => {
+    const newTodoItems = todoItems.filter((todoItem) => todoItem.id !== item.id);
+    setTodoItems(newTodoItems);
+  };
+
   return (
     <div className="container-sm d-flex justify-content-center h-100 w-100">
       <InnerWrapper className="d-flex flex-column align-items-center">
@@ -24,7 +29,7 @@ function App() {
           </Figure.Caption>
         </Figure>
         <Form addItem={addTodoItem} />
-        <List items={todoItems} />
+        <List items={todoItems} deleteItem={deleteTodoItem} />
         <Filter />
       </InnerWrapper>
     </div>
