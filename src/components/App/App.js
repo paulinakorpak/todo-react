@@ -6,7 +6,11 @@ import Filter from '../Filter';
 import InnerWrapper from './styles';
 
 function App() {
-  const [todoItems] = useState([]);
+  const [todoItems, setTodoItems] = useState([]);
+
+  const addTodoItem = (item) => {
+    setTodoItems([...todoItems, item]);
+  };
 
   return (
     <div className="container-sm d-flex justify-content-center h-100 w-100">
@@ -19,7 +23,7 @@ function App() {
             you wont forget anything today!
           </Figure.Caption>
         </Figure>
-        <Form />
+        <Form addItem={addTodoItem} />
         <List items={todoItems} />
         <Filter />
       </InnerWrapper>
