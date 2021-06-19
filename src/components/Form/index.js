@@ -23,6 +23,7 @@ function Form({ addItem }) {
         placeholder="add new todo"
         className="form-control form-control-color-secondary p-4"
         onKeyUp={handleChange}
+        data-test="add-item-input"
       />
     </div>
   );

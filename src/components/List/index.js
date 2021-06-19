@@ -6,7 +6,7 @@ import Item from '../Item';
 function List({ items, deleteItem, markItemAsCompleted }) {
   return (
     <div className="w-100">
-      <ListGroup>
+      <ListGroup data-test="items-list">
         {items.map((item) => (
           <Item
             key={item.id}

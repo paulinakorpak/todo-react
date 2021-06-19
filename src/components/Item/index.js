@@ -16,17 +16,22 @@ function Item({ item, deleteItem, markItemAsCompleted }) {
   const lineThroughClassName = item.completed ? 'checked text-decoration-line-through' : '';
 
   return (
-    <Todo className="todo">
+    <Todo
+      className="todo"
+      data-test="item"
+    >
       <Form.Group controlId="formBasicCheckbox" className="d-flex align-items-center">
         <Form.Check
           type="checkbox"
           label={item.title}
           className={`checkbox flex-grow-1 text-secondary flex-grow-1 ${lineThroughClassName}`}
           onClick={handleStatusChange}
+          data-test="completed-checkbox"
         />
         <BsArchiveFill
           className="icon text-primary"
           onClick={handleDelete}
+          data-test="remove-item"
         />
       </Form.Group>
     </Todo>

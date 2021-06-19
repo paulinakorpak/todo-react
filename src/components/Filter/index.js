@@ -11,9 +11,27 @@ function Filter({ setFilter }) {
   return (
     <div>
       <ButtonGroup className="mt-3">
-        <Button onClick={handleClick} variant="link text-decoration-none">All</Button>
-        <Button onClick={handleClick} variant="link text-decoration-none">Active</Button>
-        <Button onClick={handleClick} variant="link text-decoration-none">Done</Button>
+        <Button
+          onClick={handleClick}
+          variant="link text-decoration-none"
+          data-test="filter-all"
+        >
+          All
+        </Button>
+        <Button
+          onClick={handleClick}
+          variant="link text-decoration-none"
+          data-test="filter-active"
+        >
+          Active
+        </Button>
+        <Button
+          onClick={handleClick}
+          variant="link text-decoration-none"
+          data-test="filter-done"
+        >
+          Done
+        </Button>
       </ButtonGroup>
     </div>
   );

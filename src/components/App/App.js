@@ -39,7 +39,10 @@ function App() {
   return (
     <div className="container-sm d-flex justify-content-center h-100 w-100">
       <InnerWrapper className="d-flex flex-column align-items-center">
-        <Figure className="text-center mt-5">
+        <Figure
+          className="text-center mt-5"
+          data-test="header"
+        >
           <blockquote className="blockquote">
             <h1 className="h1 title text-primary text-uppercase">To Do List</h1>
           </blockquote>
